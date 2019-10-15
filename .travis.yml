@@ -20,6 +20,6 @@ before_install:
 install:
 - make install
 script:
-- make ut
+- make unit-test
 - make package
 - make deploy

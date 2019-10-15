@@ -5,7 +5,7 @@ install:
 	#fun install sbox -f tz-time --cmd 'npm install'
 	npm install
 
-ut:
+unit-test:
 	#fun install sbox -f tz-time --cmd 'npm test'
 	npm test
 

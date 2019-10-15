@@ -1,5 +1,8 @@
-.env
 package-lock.json
 template.yml
 .funignore
 *.test.js
+Makefile
+.gitignore
+.git/
+template.*.yml
