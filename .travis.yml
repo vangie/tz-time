@@ -1,28 +1,26 @@
 language: node_js
-
 os:
-  - linux
-
+- linux
 node_js:
-  - '10'
-
+- '10'
 services:
-  - docker
-
+- docker
 env:
+  matrix:
   - REGION=cn-hongkong
   - TIMEOUT=600
   - RETRIES=3
-
+  global:
+  - secure: j3w6YlROExfKwgitdE9vQ0P9K77dchHqK8ISeZUk6Pd1bcOjALmpQGiLcibiTcMjwp+es5P2Z0al68neX0bHnY3nYPZb6cmW91liobgE3nt87ZQxzKwZ7G0MbAL5n4ufvRLYUaQ44PsAjNaRRPXp378ogatk2+ooy8gI3wK+Ej7TzAI2j6EVFhVHY428SLS9vP0Fb/Xe6/41X2/F8PQwAeQcSbzviNIEZpLQZk2Jhti2EW5zMB8geJK/7o44fYadqCPprH3qSyMciPE7S6j8Cgn2CN8BLDnoTa+zTxKECE0RSmr9/M2olfcxmKAuTTzP5cmihPAbfLanAetCicVimALV6O0kxa2WfoGGMRMaXkEqvT6L2wSjNdAdUyR6hc5TMPbjb8ChlLzddgsukZ1zrwH633xbUgbJ+OYOwQV3Esp7v8JwnsA7R3E9lFC/25m0NAwS1YehFiIazSYJNuLcxYocQOpCQK+Tqqlx7PM9tVIfKN4nSojnDTbysAOKT8qL3hCeanxNmldIaCKO8m2dPsPlc/IMCDQ5OHwYrtBFYmL8IkJ00W1vMjUO87p582vyn7MwpZFLAMpfq9r1Cs7fb32RaABbnjqA3i5qfZHjkdueBOQrhV3I3H+oi4OMdHrIjp59QS0GHjONPkxEt6cnQVBgXlsLECuDfVab8xc0ID4=
+  - secure: GSHapiyMm9z1biNbCt9tUV5uSa4b8bkPCmxwCVm0A9TwZtFPx47i9PFWMtf5iWz7rQo69BSgFa6/k8f92jt5/bFNlwk/2+SQxl/tA8NYhLlGepiI76vYts8lzEiFM+0Z89Lo5Gc8QJmo9Q4aKCA1MF9TpXAtP2GVHTRnuUIpgTZQYuX6RyCLxxo0kAfLRd/Lb1Zg7uMZZGjQ/u9uoZUD/bcM0T4+Pm0fXziXTAph2zhTt9z+5II1EaKDVohiTZ/CBOhw2j3jN0dU/S7NNuHf8PJ6N83rdhAx/VQFZ5anhmYyshmO371rv388lIrSnJc3yjH+Rv3VW6Q9rdsE6tm/2N1gy7w4tnsDfFzZDK1mlWSeLbgOoCGJOsLtJdR34Wm6gKIiAuGa/pz295N1qTmAkSgxprOh9YpWEBsjt5N+Y4yMBuvHNgbbe3QmsAh7S4FEPBnTJ59k/8PfA9cnTpgw22jR3P8VLdNnQfX72R0NnmxuDkkraXdlVv1e+w1n7Zt0qyIufzQ4TbW1gOEPuZwQk7nE9AVYcvts8rGaMPq4uj9Grq1rzTOPRFq5daE9WVBIV8wsCf77fnAnnccjhwGawaLrkXqW35vefg/aysXmGuh7mDem1LgxB0wLRjbVLRsS6XRDnwj47c6npeCEyacha1bYAsMS6yHB1VdNyE8uAoU=
+  - secure: CP+0wIISsyO+RxtW5+JQgAi/yNxC/s8tL51+rJNpTHVPJ250uCIol8IIqxU95arJHF7kLDkaKqZNJOihZZBfdCC5+subC1xu18nSc9fZ8FCFF8wd+/wxewLJBzMxOQUYLJ6wmGjT9onbcIy/kGEkVVqGhiXCBLCNdXWkmmy/MZnqrARTogjuRRF7Xs6JVu1agoWQT7VJTMrD0pD4wuOdjb2Oe5/bH7lk3kpipNK6HQ1BB/eXDtmOwoBAqR6m4gJ2cWkQHB7WD/fouklvbU+ENic2KkithjS56eSZL/XYLNOk7E5jeZu7VwEiQPqOC/LDsFXcd4kxH30eX9RaZBH8IyWkEhztGVS31rHUwh7EEU7O9QMCONRZdFcLZO3+Ue2kAi2PUz82TnZoFbsPHrBBjgqvKCUW/Nzprk0IQ3/KffRjWgzHzbjUnimNVDSUKfEjh9P+G54yfrRWnCw0tR7tFZlTnl9yNap6+I8X8EGXXuhOEvuXwxqIFDO0HVXZpvRmNdReWvstcLtpNHGJ0gvihoMSUU7qBuXmh8qB9W+BZFxZfM1MaMfmBtTCzbQKD5JiYNnQjOH/VIeKzvKr/eb5RPiSCXVj8Ippa1uRl20aH23ijoozA8Jmacqw2KqOjICcY36HbCYChCpSjC5HC9slaoX+ww0UgqWzY+jBNcwvv0o=
 before_install:
-  - curl https://gosspublic.alicdn.com/fun/fun-v3.0.6-linux.zip -o fun-v3.0.6-linux.zip
-  - unzip fun-v3.0.6-linux.zip
-  - mv fun-v3.0.6-linux /usr/local/bin/fun
-
+- curl https://gosspublic.alicdn.com/fun/fun-v3.0.6-linux.zip -o fun-v3.0.6-linux.zip
+- unzip fun-v3.0.6-linux.zip
+- mv fun-v3.0.6-linux /usr/local/bin/fun
 install:
-  - make install
-
+- make install
 script:
-  - make ut
-  - make package
-  - make deploy
+- make ut
+- make package
+- make deploy
