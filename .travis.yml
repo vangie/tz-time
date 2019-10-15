@@ -1,0 +1,28 @@
+language: node_js
+
+os:
+  - linux
+
+node_js:
+  - '10'
+
+services:
+  - docker
+
+env:
+  - REGION=cn-hongkong
+  - TIMEOUT=600
+  - RETRIES=3
+
+before_install:
+  - curl https://gosspublic.alicdn.com/fun/fun-v3.0.6-linux.zip -o fun-v3.0.6-linux.zip
+  - unzip fun-v3.0.6-linux.zip
+  - mv fun-v3.0.6-linux /usr/local/bin/fun
+
+install:
+  - make install
+
+script:
+  - make ut
+  - make package
+  - make deploy
