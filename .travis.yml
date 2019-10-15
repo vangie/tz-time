@@ -16,7 +16,7 @@ env:
 before_install:
 - curl https://gosspublic.alicdn.com/fun/fun-v3.0.6-linux.zip -o fun-v3.0.6-linux.zip
 - unzip fun-v3.0.6-linux.zip
-- mv fun-v3.0.6-linux /usr/local/bin/fun
+- sudo mv fun-v3.0.6-linux /usr/local/bin/fun
 install:
 - make install
 script:
