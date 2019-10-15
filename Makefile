@@ -2,13 +2,16 @@ clean:
 	rm -rf node_modules/
 
 install:
-	fun install sbox -f tz-time --cmd 'npm install'
+	#fun install sbox -f tz-time --cmd 'npm install'
+	npm install
 
 ut:
-	fun install sbox -f tz-time --cmd 'npm test'
+	#fun install sbox -f tz-time --cmd 'npm test'
+	npm test
 
 package: clean
-	fun install
+	#fun install
+	npm install --production
 	fun package --oss-bucket tz-staging
 
 deploy:
