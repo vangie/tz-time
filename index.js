@@ -15,7 +15,7 @@ module.exports.handler = function(req, resp, context) {
             console.error(`Unknown timezone ${tz}`);
 
             resp.send(JSON.stringify({
-                statusCode: '400',
+                statusCode: 400,
                 message: `Unknown timezone ${tz}.`,
                 timezones: moment.tz.names()
             }, null, '    '));
@@ -26,7 +26,7 @@ module.exports.handler = function(req, resp, context) {
     }
 
     resp.send(JSON.stringify({
-        statusCode: '200',
+        statusCode: 200,
         message: `The time in ${tz} is: ${moment.tz(tz).format()}`
     }, null, '    '));
 }
