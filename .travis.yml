@@ -23,4 +23,5 @@ install:
 - make install
 script:
 - echo ${ACCOUNT_ID}
+- echo ${REGION}
 - make integration-test
