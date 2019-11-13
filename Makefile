@@ -27,4 +27,5 @@ package: clean
 deploy:
 	fun deploy --use-ros --stack-name tz-staging --assume-yes | tee deploy.log
 	cat deploy.log | grep '^url:' | sed -e "s/^url: //" | sed -e 's/^/DEPLOYED_URL=/' > .env
+	cat .env
 	rm deploy.log
