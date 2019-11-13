@@ -18,6 +18,7 @@ before_install:
 - curl https://gosspublic.alicdn.com/fun/fun-${FUN_VERSION}-linux.zip -o fun.zip
 - unzip fun.zip
 - sudo mv fun-${FUN_VERSION}-linux /usr/local/bin/fun
+- docker pull aliyunfc/runtime-nodejs10:1.6.8
 install:
 - make install
 script:

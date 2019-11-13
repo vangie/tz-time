@@ -14,7 +14,7 @@ funlocal.PID:
 
 integration-test: funlocal.PID 
 	npm run integration:test
-	kill `cat $<` && rm $<
+	kill -2 `cat $<` && rm $<
 
 e2e-test: install
 	npm run e2e:test
