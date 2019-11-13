@@ -25,8 +25,8 @@ before_install:
 install:
 - make install
 script:
-- make unit-test
+# - make unit-test
 - make integration-test
-- make package
-- make deploy
-- make e2e-test
+# - make package
+# - make deploy
+# - make e2e-test
