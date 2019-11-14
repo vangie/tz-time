@@ -21,13 +21,15 @@ before_install:
 - curl https://gosspublic.alicdn.com/fun/fun-${FUN_VERSION}-linux.zip -o fun.zip
 - unzip fun.zip
 - sudo mv fun-${FUN_VERSION}-linux /usr/local/bin/fun
+- curl -L https://github.com/aliyun/aliyun-cli/releases/download/v3.0.29/aliyun-cli-linux-3.0.29-amd64.tgz -o aliyun-cli.tgz
+- tar xzvf aliyun-cli.tgz
+- sudo mv aliyun /usr/local/bin/aliyun
 - docker pull aliyunfc/runtime-nodejs10:1.6.8
 install:
 - make install
 script:
 - make unit-test
-- echo $ACCOUNT_ID
 - make integration-test
 - make package
-- make deploy
 - make e2e-test
+- make deploy

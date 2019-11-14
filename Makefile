@@ -17,7 +17,18 @@ integration-test: funlocal.PID
 	kill -2 `cat $<` && rm $<
 
 e2e-test: install
+	# deploy e2e 
+	stack_name=tz-e2e-`head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13`
+	echo ${stack_name}
+	fun deploy --use-ros --stack-name ${stack_name} --assume-yes | tee ${stack_name}-deploy.log
+	cat ${stack_name}-deploy.log | grep '^url:' | sed -e "s/^url: //" | sed -e 's/^/DEPLOYED_URL=/' > .env
+	cat .env
+	rm ${stack_name}-deploy.log
+	# run test
 	npm run e2e:test
+	# cleanup
+	aliyun --access-key-id ${ACCESS_KEY_ID} --access-key-secret ${ACCESS_KEY_SECRET} ros DeleteStack  --RegionId ${REGION} --StackId ${stack_name} --RetainAllResources true
+
 
 package: clean
 	#fun install
@@ -26,6 +37,3 @@ package: clean
 
 deploy:
 	fun deploy --use-ros --stack-name tz-staging --assume-yes | tee deploy.log
-	cat deploy.log | grep '^url:' | sed -e "s/^url: //" | sed -e 's/^/DEPLOYED_URL=/' > .env
-	cat .env
-	rm deploy.log
