@@ -29,7 +29,8 @@ e2e-test: install
 	# run test
 	npm run e2e:test
 	# cleanup
-	export stack_id=$(shell aliyun --access-key-id $$ACCESS_KEY_ID --access-key-secret $$ACCESS_KEY_SECRET ros ListStacks --RegionId cn-hongkong | jq -r '.Stacks[] | select(.StackName | contains("tz-e2e-1573722544")) | .StackId');\
+	aliyun --access-key-id $$ACCESS_KEY_ID --access-key-secret $$ACCESS_KEY_SECRET ros ListStacks --RegionId $$REGION | jq -r '.Stacks[] | select(.StackName | contains("$(stack_name)")) | .StackId'
+	export stack_id=$(shell aliyun --access-key-id $$ACCESS_KEY_ID --access-key-secret $$ACCESS_KEY_SECRET ros ListStacks --RegionId $$REGION | jq -r '.Stacks[] | select(.StackName | contains("$(stack_name)")) | .StackId');\
 	echo $$stack_id;\
 	aliyun --access-key-id $$ACCESS_KEY_ID --access-key-secret $$ACCESS_KEY_SECRET ros DeleteStack  --RegionId $$REGION --StackId $$stack_id --RetainAllResources true
 
