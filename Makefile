@@ -19,7 +19,7 @@ integration-test: funlocal.PID
 
 stack_name=tz-e2e-$(shell date +%s)
 
-e2e-test: 
+e2e-test: install
 	# deploy e2e 
 	echo $(stack_name)
 	fun deploy --use-ros --stack-name $(stack_name) --assume-yes | tee $(stack_name)-deploy.log
