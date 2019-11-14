@@ -18,7 +18,7 @@ integration-test: funlocal.PID
 
 e2e-test: install
 	# deploy e2e 
-	stack_name=tz-e2e-`head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13`
+	export stack_name=tz-e2e-`head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13`
 	echo ${stack_name}
 	fun deploy --use-ros --stack-name ${stack_name} --assume-yes | tee ${stack_name}-deploy.log
 	cat ${stack_name}-deploy.log | grep '^url:' | sed -e "s/^url: //" | sed -e 's/^/DEPLOYED_URL=/' > .env
