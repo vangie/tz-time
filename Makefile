@@ -29,6 +29,7 @@ e2e-test: install
 	# run test
 	npm run e2e:test
 	# cleanup
+	aliyun --access-key-id ${ACCESS_KEY_ID} --access-key-secret ${ACCESS_KEY_SECRET} ros ListStacks --RegionId ${REGION}
 	aliyun --access-key-id ${ACCESS_KEY_ID} --access-key-secret ${ACCESS_KEY_SECRET} ros ListStacks --RegionId ${REGION} | jq -r '.Stacks[] | select(.StackName | contains("$(stack_name)")) | .StackId'
 	export stack_id=$(shell aliyun --access-key-id ${ACCESS_KEY_ID} --access-key-secret ${ACCESS_KEY_SECRET} ros ListStacks --RegionId ${REGION} | jq -r '.Stacks[] | select(.StackName | contains("$(stack_name)")) | .StackId');\
 	echo $$stack_id;\
