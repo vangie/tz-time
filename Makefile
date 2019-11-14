@@ -20,7 +20,7 @@ integration-test: funlocal.PID
 # stack_name := tz-e2e-$(shell date +%s)
 stack_name := tz-e2e-1573736536
 
-e2e-test: 
+e2e-test: install
 	# deploy e2e 
 	fun deploy --use-ros --stack-name $(stack_name) --assume-yes | tee $(stack_name)-deploy.log
 	cat $(stack_name)-deploy.log | grep '^url:' | sed -e "s/^url: //" | sed -e 's/^/DEPLOYED_URL=/' > .env
