@@ -9,6 +9,7 @@ describe('request url', () => {
             if (error) {
                 fail(error);
             } else {
+                console.log(data);
                 const resData = JSON.parse(data);
                 expect(resData.statusCode).toBe(200);
                 expect(resData.message).toContain('Asia/Shanghai');
