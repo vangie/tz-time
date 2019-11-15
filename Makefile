@@ -13,7 +13,7 @@ funlocal.PID:
 	fun local start & echo $$! > $@
 
 integration-test: funlocal.PID 
-	curl http://localhost:8000/2016-08-15/proxy/tz-time/tz-time/
+	bin/waitForServer.sh http://localhost:8000/2016-08-15/proxy/tz-time/tz-time/
 	npm run integration:test
 	kill -2 `cat $<` && rm $<
 
