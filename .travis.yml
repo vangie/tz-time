@@ -9,6 +9,7 @@ services:
 cache:
   directories:
   - $HOME/.cache/docker_images
+  - $HOME/.cache/downloads
 
 env:
   global:
@@ -16,6 +17,7 @@ env:
   - TIMEOUT=600
   - RETRIES=3
   - FUN_VERSION=v3.0.8
+  - DL_CACHE=$HOME/.cache/downloads
   # ACCOUNT_ID
   - secure: Y7ewyW45eKLDhsy0MBtThTsfBoiQOb3RUKOb0uaKOvTQj6RbH0X2ZNaizv+eURxS7cxmjFt7v9/XHBvnweLRKOS51fqhqa/OyGZQoyXOUSzTLX5x+qFR0WB7Qqr0DSTXe/1kIdvxNM4QgkIZLKfigxaLcMRun5rU7tkx3rFhCWlZ7AqhdBH9MbTPZCefzqFWd/GczOfN8vYuBfEMql4HrsdzrLif0elI2cJeznJz0yXYO0CFbFA3oW8hg3inQbLQHiU79HasSBsIuaDba59/zQAN0sWtTSJWNj8TYgHFEwOEjsTO5d5lhk4JPEJNdP8JM3nJWWFITpoJEc5HewJi7+1Xl9RBzlY0qnmeSq2rSr24p/jMmyTWnaylV/YAG/b4Zm0eZLX0m1OT90Pvjz9qD+g9oe62Z4DPXavnXBYiufzIHSEXrWdoMuldoq+e706kJudm4O0IQwuD6e8ihKSRnI9/kfV4LIZvgwkkfUEuK6HSCKYUa/05Omtu/wCsk2f8Ka6xM5HjmQ6GEHmbMJE977jzmeavM2e7akMrhdxBgcSCe4vk1hgUX1AnoopbGKb4lQnJIyboGKgZWm+xIJjo+Ilit1ZMIz7QHZ/mhG5jKk4u1xf5Iqubesd+5TVB0ke9xAe7FQCIgFh3vX+3aGah8GL6GJDaaQFLf10Nm/UvJFc=
   # ACCESS_KEY_ID
@@ -23,11 +25,11 @@ env:
   # ACCESS_KEY_SECRET
   - secure: XUFegQWPkQrKK9TszrAP3OvFPGoGqDtXih81JXDCjLwke3wLAOqg3x7BlX2PI0EMSSCtWmKJMn4Nw0iwUOve1crePBkYOIbS1x65z3hdPhrmCkYeXxTGMVHuzjwAcil+DfX0H4Tl0VpWRNSbNktNmdAiSAlItFCzu9enoEhbrSyYhvxSY5/fTk+LKbze6PeF5Aznfum3jbGIZMb3I+ii/KugrrdDv6r/WDv2Wtd45wA4DfyVIN9xKHLoONp7CH/d8ULBqED+MMi/HnXC63//W/zvvMyZfdXBD9hk3OjPTmC2FB2k1a6h3xm4b+DXof614BEJvMCodoV0dz3QviM29neMJ/eOtlP6APX/vW0p3KlNNiXlKi2Xn7R0JfYy4joSlcVSXQUL7h/kPsLptt43v8qeg34z8n8AzAFemmLeOYuqmPs2HzvZ0ObjBelDIZpzyTMn/vLnK38cJbeyncCpF9/sCpYc7KTm6paCOnGiItPJloBS5sdrjTuKL12mdr2VEGRqEpicRtaN0CPKYh0HP/qVRs8+3X1HpH1fsqGLh+LlHqtEgG/xzHKBW83cxFjElmffYokfjunGD1iW3iXvGm7B8jIcoObGx/5NyMN9EDNKOw3Vupggp+Dj5nR2vmZdosE9sbKg+5JwwSUc+qgj94k1q4IPZwIky9oPxgd2w4o=
 before_install:
-- curl https://gosspublic.alicdn.com/fun/fun-${FUN_VERSION}-linux.zip -o fun.zip
-- unzip fun.zip
+- wget -nc -q -O ${DL_CACHE}/fun.zip https://gosspublic.alicdn.com/fun/fun-${FUN_VERSION}-linux.zip
+- unzip ${DL_CACHE}/fun.zip
 - sudo mv fun-${FUN_VERSION}-linux /usr/local/bin/fun
-- curl -L https://github.com/aliyun/aliyun-cli/releases/download/v3.0.29/aliyun-cli-linux-3.0.29-amd64.tgz -o aliyun-cli.tgz
-- tar xzvf aliyun-cli.tgz
+- wget -nc -q -O ${DL_CACHE}/aliyun-cli.tgz https://github.com/aliyun/aliyun-cli/releases/download/v3.0.29/aliyun-cli-linux-3.0.29-amd64.tgz
+- tar xzvf ${DL_CACHE}/aliyun-cli.tgz
 - sudo mv aliyun /usr/local/bin/aliyun
 - sudo apt-get install jq
 - docker load -i $HOME/.cache/docker_images/images.tar || true
