@@ -13,7 +13,8 @@ funlocal.PID:
 	fun local start & echo $$! > $@
 
 integration-test: funlocal.PID 
-	sleep 2 && npm run integration:test
+	curl http://localhost:8000/2016-08-15/proxy/tz-time/tz-time/
+	npm run integration:test
 	kill -2 `cat $<` && rm $<
 
 
