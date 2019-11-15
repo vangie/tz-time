@@ -6,17 +6,12 @@ node_js:
 services:
 - docker
 
-cache:
-  directories:
-  - $DL_CACHE
-
 env:
   global:
   - REGION=cn-hongkong
   - TIMEOUT=600
   - RETRIES=3
   - FUN_VERSION=v3.0.8
-  - DL_CACHE=$HOME/.cache/downloads
   # ACCOUNT_ID
   - secure: Y7ewyW45eKLDhsy0MBtThTsfBoiQOb3RUKOb0uaKOvTQj6RbH0X2ZNaizv+eURxS7cxmjFt7v9/XHBvnweLRKOS51fqhqa/OyGZQoyXOUSzTLX5x+qFR0WB7Qqr0DSTXe/1kIdvxNM4QgkIZLKfigxaLcMRun5rU7tkx3rFhCWlZ7AqhdBH9MbTPZCefzqFWd/GczOfN8vYuBfEMql4HrsdzrLif0elI2cJeznJz0yXYO0CFbFA3oW8hg3inQbLQHiU79HasSBsIuaDba59/zQAN0sWtTSJWNj8TYgHFEwOEjsTO5d5lhk4JPEJNdP8JM3nJWWFITpoJEc5HewJi7+1Xl9RBzlY0qnmeSq2rSr24p/jMmyTWnaylV/YAG/b4Zm0eZLX0m1OT90Pvjz9qD+g9oe62Z4DPXavnXBYiufzIHSEXrWdoMuldoq+e706kJudm4O0IQwuD6e8ihKSRnI9/kfV4LIZvgwkkfUEuK6HSCKYUa/05Omtu/wCsk2f8Ka6xM5HjmQ6GEHmbMJE977jzmeavM2e7akMrhdxBgcSCe4vk1hgUX1AnoopbGKb4lQnJIyboGKgZWm+xIJjo+Ilit1ZMIz7QHZ/mhG5jKk4u1xf5Iqubesd+5TVB0ke9xAe7FQCIgFh3vX+3aGah8GL6GJDaaQFLf10Nm/UvJFc=
   # ACCESS_KEY_ID
@@ -27,13 +22,15 @@ before_install:
 # install jq
 - sudo apt-get install jq
 # install fun
-- wget -nc -q -c -O ${DL_CACHE}/fun.zip https://gosspublic.alicdn.com/fun/fun-${FUN_VERSION}-linux.zip
-- unzip ${DL_CACHE}/fun.zip
+- curl -L https://gosspublic.alicdn.com/fun/fun-${FUN_VERSION}-linux.zip -o /tmp/fun.zip
+- unzip /tmp/fun.zip
 - sudo mv fun-${FUN_VERSION}-linux /usr/local/bin/fun
+- rm -f /tmp/fun.zip
 # install aliyun-cli 
-- wget -nc -q -c -O ${DL_CACHE}/aliyun-cli.tgz https://github.com/aliyun/aliyun-cli/releases/download/v3.0.29/aliyun-cli-linux-3.0.29-amd64.tgz
-- tar xzvf ${DL_CACHE}/aliyun-cli.tgz
+- curl -L https://github.com/aliyun/aliyun-cli/releases/download/v3.0.29/aliyun-cli-linux-3.0.29-amd64.tgz -o /tmp/aliyun-cli.tgz
+- tar xzvf /tmp/aliyun-cli.tgz
 - sudo mv aliyun /usr/local/bin/aliyun
+- rm -f /tmp/aliyun-cli.tgz
 # pull image for fun local
 - docker pull aliyunfc/runtime-nodejs10:1.6.8
 
