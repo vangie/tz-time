@@ -4,5 +4,5 @@ url=$1
 
 until $(curl --output /dev/null --silent --head --fail $url); do
     printf '.'
-    sleep 5
+    sleep 0.1
 done
