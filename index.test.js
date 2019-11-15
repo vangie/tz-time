@@ -33,7 +33,7 @@ describe('when call handle', () => {
 
         expect(mockResp.send.mock.calls.length).toBe(1);
         expect(mockResp.send.mock.calls[0][0]).toBe(JSON.stringify({
-            statusCode: '200',
+            statusCode: 200,
             message: `The time in ${TIMEZONE} is: ${EXPECTED_DATE}`
         }, null, '    '));
 
@@ -63,7 +63,7 @@ describe('when call handle', () => {
 
         expect(mockResp.send.mock.calls.length).toBe(1);
         expect(mockResp.send.mock.calls[0][0]).toBe(JSON.stringify({
-            statusCode: '200',
+            statusCode: 200,
             message: `The time in Asia/Shanghai is: ${EXPECTED_DATE}`
         }, null, '    '));
     });
@@ -89,7 +89,7 @@ describe('when call handle', () => {
     
         expect(mockResp.send.mock.calls.length).toBe(1);
         expect(mockResp.send.mock.calls[0][0]).toBe(JSON.stringify({
-            statusCode: '400',
+            statusCode: 400,
             message: `Unknown timezone ${TIMEZONE}.`,
             timezones: []
         }, null, '    '));

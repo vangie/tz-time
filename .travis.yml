@@ -5,21 +5,40 @@ node_js:
 - '10'
 services:
 - docker
+
 env:
   global:
   - REGION=cn-hongkong
   - TIMEOUT=600
   - RETRIES=3
-  - secure: j3w6YlROExfKwgitdE9vQ0P9K77dchHqK8ISeZUk6Pd1bcOjALmpQGiLcibiTcMjwp+es5P2Z0al68neX0bHnY3nYPZb6cmW91liobgE3nt87ZQxzKwZ7G0MbAL5n4ufvRLYUaQ44PsAjNaRRPXp378ogatk2+ooy8gI3wK+Ej7TzAI2j6EVFhVHY428SLS9vP0Fb/Xe6/41X2/F8PQwAeQcSbzviNIEZpLQZk2Jhti2EW5zMB8geJK/7o44fYadqCPprH3qSyMciPE7S6j8Cgn2CN8BLDnoTa+zTxKECE0RSmr9/M2olfcxmKAuTTzP5cmihPAbfLanAetCicVimALV6O0kxa2WfoGGMRMaXkEqvT6L2wSjNdAdUyR6hc5TMPbjb8ChlLzddgsukZ1zrwH633xbUgbJ+OYOwQV3Esp7v8JwnsA7R3E9lFC/25m0NAwS1YehFiIazSYJNuLcxYocQOpCQK+Tqqlx7PM9tVIfKN4nSojnDTbysAOKT8qL3hCeanxNmldIaCKO8m2dPsPlc/IMCDQ5OHwYrtBFYmL8IkJ00W1vMjUO87p582vyn7MwpZFLAMpfq9r1Cs7fb32RaABbnjqA3i5qfZHjkdueBOQrhV3I3H+oi4OMdHrIjp59QS0GHjONPkxEt6cnQVBgXlsLECuDfVab8xc0ID4=
-  - secure: GSHapiyMm9z1biNbCt9tUV5uSa4b8bkPCmxwCVm0A9TwZtFPx47i9PFWMtf5iWz7rQo69BSgFa6/k8f92jt5/bFNlwk/2+SQxl/tA8NYhLlGepiI76vYts8lzEiFM+0Z89Lo5Gc8QJmo9Q4aKCA1MF9TpXAtP2GVHTRnuUIpgTZQYuX6RyCLxxo0kAfLRd/Lb1Zg7uMZZGjQ/u9uoZUD/bcM0T4+Pm0fXziXTAph2zhTt9z+5II1EaKDVohiTZ/CBOhw2j3jN0dU/S7NNuHf8PJ6N83rdhAx/VQFZ5anhmYyshmO371rv388lIrSnJc3yjH+Rv3VW6Q9rdsE6tm/2N1gy7w4tnsDfFzZDK1mlWSeLbgOoCGJOsLtJdR34Wm6gKIiAuGa/pz295N1qTmAkSgxprOh9YpWEBsjt5N+Y4yMBuvHNgbbe3QmsAh7S4FEPBnTJ59k/8PfA9cnTpgw22jR3P8VLdNnQfX72R0NnmxuDkkraXdlVv1e+w1n7Zt0qyIufzQ4TbW1gOEPuZwQk7nE9AVYcvts8rGaMPq4uj9Grq1rzTOPRFq5daE9WVBIV8wsCf77fnAnnccjhwGawaLrkXqW35vefg/aysXmGuh7mDem1LgxB0wLRjbVLRsS6XRDnwj47c6npeCEyacha1bYAsMS6yHB1VdNyE8uAoU=
-  - secure: CP+0wIISsyO+RxtW5+JQgAi/yNxC/s8tL51+rJNpTHVPJ250uCIol8IIqxU95arJHF7kLDkaKqZNJOihZZBfdCC5+subC1xu18nSc9fZ8FCFF8wd+/wxewLJBzMxOQUYLJ6wmGjT9onbcIy/kGEkVVqGhiXCBLCNdXWkmmy/MZnqrARTogjuRRF7Xs6JVu1agoWQT7VJTMrD0pD4wuOdjb2Oe5/bH7lk3kpipNK6HQ1BB/eXDtmOwoBAqR6m4gJ2cWkQHB7WD/fouklvbU+ENic2KkithjS56eSZL/XYLNOk7E5jeZu7VwEiQPqOC/LDsFXcd4kxH30eX9RaZBH8IyWkEhztGVS31rHUwh7EEU7O9QMCONRZdFcLZO3+Ue2kAi2PUz82TnZoFbsPHrBBjgqvKCUW/Nzprk0IQ3/KffRjWgzHzbjUnimNVDSUKfEjh9P+G54yfrRWnCw0tR7tFZlTnl9yNap6+I8X8EGXXuhOEvuXwxqIFDO0HVXZpvRmNdReWvstcLtpNHGJ0gvihoMSUU7qBuXmh8qB9W+BZFxZfM1MaMfmBtTCzbQKD5JiYNnQjOH/VIeKzvKr/eb5RPiSCXVj8Ippa1uRl20aH23ijoozA8Jmacqw2KqOjICcY36HbCYChCpSjC5HC9slaoX+ww0UgqWzY+jBNcwvv0o=
+  - FUN_VERSION=v3.0.8
+  # ACCOUNT_ID
+  - secure: Y7ewyW45eKLDhsy0MBtThTsfBoiQOb3RUKOb0uaKOvTQj6RbH0X2ZNaizv+eURxS7cxmjFt7v9/XHBvnweLRKOS51fqhqa/OyGZQoyXOUSzTLX5x+qFR0WB7Qqr0DSTXe/1kIdvxNM4QgkIZLKfigxaLcMRun5rU7tkx3rFhCWlZ7AqhdBH9MbTPZCefzqFWd/GczOfN8vYuBfEMql4HrsdzrLif0elI2cJeznJz0yXYO0CFbFA3oW8hg3inQbLQHiU79HasSBsIuaDba59/zQAN0sWtTSJWNj8TYgHFEwOEjsTO5d5lhk4JPEJNdP8JM3nJWWFITpoJEc5HewJi7+1Xl9RBzlY0qnmeSq2rSr24p/jMmyTWnaylV/YAG/b4Zm0eZLX0m1OT90Pvjz9qD+g9oe62Z4DPXavnXBYiufzIHSEXrWdoMuldoq+e706kJudm4O0IQwuD6e8ihKSRnI9/kfV4LIZvgwkkfUEuK6HSCKYUa/05Omtu/wCsk2f8Ka6xM5HjmQ6GEHmbMJE977jzmeavM2e7akMrhdxBgcSCe4vk1hgUX1AnoopbGKb4lQnJIyboGKgZWm+xIJjo+Ilit1ZMIz7QHZ/mhG5jKk4u1xf5Iqubesd+5TVB0ke9xAe7FQCIgFh3vX+3aGah8GL6GJDaaQFLf10Nm/UvJFc=
+  # ACCESS_KEY_ID
+  - secure: jtC2EIq/wOGtMczx9WYaSaO1FzGlO6wcm68IYDqDgQ2RPeuSzWH4TzhG9Q+fY8EQ6kcUYIfPuTaorKt7tXmgoSPS3l/6xOl8EfC2T7YItUs8G6RRWpFB5NeSS911PSQCwMUJs6padDkbeGdDQ3Y309MNJlgIqfVJMLclM4onLUHIwnGzk4s5r2AKIaYI97rcvgf6Z2izlBnHUdG9Sm4RQuxlDLtbAQCuJsoTNK4FcUpxtOUzA0dDDWwSfQvIb3xoIm3MCFP5AkkPTOp2zTLJOo8aHbyefHX71hO0RKg+jw2+/y6ocPucb6sdATR8LDqVKmKvkls9VDCqNzm3KlnSIBdMgaLxZAqLqp7bRph+S3lTg23i4EwWkBjsHq1AilT3BfhWm7EeIesSERzto8b2w9k7xHsC/iegS354b7uaEKLDpuvqsL/HhUqtlI8DuDJu5wpeqQIGFr9c13QZeIr4Q8bIIlYBU1SizOz5HTD5dGrfTw/gp9n/lrP6Iq3JqHwP7EJrZ0jP7itLL0XFi5WRnK3mff/0CLNZx3KEHgdUFqhVkEdMLDZtJJFgXJsFyXnHf/+x48mmvXSTCNyNZ7hScRW4wmYIYiy7zaWTGfk/NialRWnbRz1LhUkclonawdxNk87v2ppnh9I2q8t0GKf/obw9n38bnuG0a+Y+KRt6Zxw=
+  # ACCESS_KEY_SECRET
+  - secure: XUFegQWPkQrKK9TszrAP3OvFPGoGqDtXih81JXDCjLwke3wLAOqg3x7BlX2PI0EMSSCtWmKJMn4Nw0iwUOve1crePBkYOIbS1x65z3hdPhrmCkYeXxTGMVHuzjwAcil+DfX0H4Tl0VpWRNSbNktNmdAiSAlItFCzu9enoEhbrSyYhvxSY5/fTk+LKbze6PeF5Aznfum3jbGIZMb3I+ii/KugrrdDv6r/WDv2Wtd45wA4DfyVIN9xKHLoONp7CH/d8ULBqED+MMi/HnXC63//W/zvvMyZfdXBD9hk3OjPTmC2FB2k1a6h3xm4b+DXof614BEJvMCodoV0dz3QviM29neMJ/eOtlP6APX/vW0p3KlNNiXlKi2Xn7R0JfYy4joSlcVSXQUL7h/kPsLptt43v8qeg34z8n8AzAFemmLeOYuqmPs2HzvZ0ObjBelDIZpzyTMn/vLnK38cJbeyncCpF9/sCpYc7KTm6paCOnGiItPJloBS5sdrjTuKL12mdr2VEGRqEpicRtaN0CPKYh0HP/qVRs8+3X1HpH1fsqGLh+LlHqtEgG/xzHKBW83cxFjElmffYokfjunGD1iW3iXvGm7B8jIcoObGx/5NyMN9EDNKOw3Vupggp+Dj5nR2vmZdosE9sbKg+5JwwSUc+qgj94k1q4IPZwIky9oPxgd2w4o=
 before_install:
-- curl https://gosspublic.alicdn.com/fun/fun-v3.0.6-linux.zip -o fun-v3.0.6-linux.zip
-- unzip fun-v3.0.6-linux.zip
-- sudo mv fun-v3.0.6-linux /usr/local/bin/fun
+# install jq
+- sudo apt-get install jq
+# install fun
+- curl -L https://gosspublic.alicdn.com/fun/fun-${FUN_VERSION}-linux.zip -o /tmp/fun.zip
+- unzip /tmp/fun.zip
+- sudo mv fun-${FUN_VERSION}-linux /usr/local/bin/fun
+- rm -f /tmp/fun.zip
+# install aliyun-cli 
+- curl -L https://github.com/aliyun/aliyun-cli/releases/download/v3.0.29/aliyun-cli-linux-3.0.29-amd64.tgz -o /tmp/aliyun-cli.tgz
+- tar xzvf /tmp/aliyun-cli.tgz
+- sudo mv aliyun /usr/local/bin/aliyun
+- rm -f /tmp/aliyun-cli.tgz
+# pull image for fun local
+- docker pull aliyunfc/runtime-nodejs10:1.6.8
+
 install:
 - make install
 script:
 - make unit-test
+- make integration-test
 - make package
+- make e2e-test
 - make deploy

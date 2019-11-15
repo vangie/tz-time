@@ -6,3 +6,5 @@ Makefile
 .gitignore
 .git/
 template.*.yml
+*.log
+.env
