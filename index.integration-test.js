@@ -1,8 +1,10 @@
 const request = require('request');
 
+const url = 'http://localhost:8000/2016-08-15/proxy/tz-time/tz-time/';
+
 describe('request url', () => {
     it('without tz', (done) => {
-        request('http://localhost:8000/2016-08-15/proxy/tz-time/tz-time/', (error, response, data) => {
+        request(url, (error, response, data) => {
             if (error) {
                 fail(error);
             } else {
@@ -15,7 +17,7 @@ describe('request url', () => {
     });
 
     it('with tz', (done) => {
-        request('http://localhost:8000/2016-08-15/proxy/tz-time/tz-time/?tz=America/New_York', (error, response, data) => {
+        request(`${url}?tz=America/New_York`, (error, response, data) => {
             if (error) {
                 fail(error);
             } else {
@@ -28,7 +30,7 @@ describe('request url', () => {
     })
 
     it('with wrong tz', (done) => {
-        request('http://localhost:8000/2016-08-15/proxy/tz-time/tz-time/?tz=aaa', (error, response, data) => {
+        request(`${url}?tz=aaa`, (error, response, data) => {
             if (error) {
                 fail(error);
             } else {
