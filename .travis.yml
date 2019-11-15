@@ -8,7 +8,7 @@ services:
 
 cache:
   directories:
-  - docker_images
+  - $HOME/.cache/docker_images
 
 env:
   global:
@@ -30,11 +30,11 @@ before_install:
 - tar xzvf aliyun-cli.tgz
 - sudo mv aliyun /usr/local/bin/aliyun
 - sudo apt-get install jq
-- docker load -i docker_images/images.tar || true
+- docker load -i $HOME/.cache/docker_images/images.tar || true
 - docker pull aliyunfc/runtime-nodejs10:1.6.8
 
 before_cache:
-- docker save -o docker_images/images.tar $(docker images -a -q)
+- docker save -o $HOME/.cache/docker_images/images.tar $(docker images -a -q)
 
 install:
 - make install
