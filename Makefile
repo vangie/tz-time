@@ -11,10 +11,9 @@ unit-test:
 
 funlocal.PID:
 	fun local start & echo $$! > $@
-	sleep 1
 
 integration-test: funlocal.PID 
-	npm run integration:test
+	sleep 2 && npm run integration:test
 	kill -2 `cat $<` && rm $<
 
 
